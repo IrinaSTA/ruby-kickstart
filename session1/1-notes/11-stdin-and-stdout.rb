@@ -1,4 +1,4 @@
-# Programs that run in a terminal read text in, and write text out.
+# Program(s) that run in a terminal read text in, and write text out.
 # This is the common interface that allows lots of different programs to interact with each other.
 
 # When a program outputs text, we say it sends it to standard output (stdout).
@@ -31,4 +31,3 @@ puts "You said: #{user_response}"
 # line       # => "Line\n"
 #
 # It's like a cookie monster for newlines!
-

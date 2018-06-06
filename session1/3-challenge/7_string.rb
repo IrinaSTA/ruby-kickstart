@@ -5,5 +5,5 @@
 # pirates_say_arrrrrrrrr("Pirates say arrrrrrrrr")        # => "arrrrrrrr"
 
 def pirates_say_arrrrrrrrr(string)
-
+  string.each_char {|c| print string[string.index(c) + 1] if c == "r"}
 end

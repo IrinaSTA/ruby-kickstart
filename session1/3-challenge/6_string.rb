@@ -6,5 +6,9 @@
 #
 
 def odds_and_evens(string, return_odds)
-
+  if return_odds == true
+    string.each_char {|c| print c if string.index(c).even? == true}
+  else
+    string.each_char {|c| print c if string.index(c).odd? == true}
+  end
 end
