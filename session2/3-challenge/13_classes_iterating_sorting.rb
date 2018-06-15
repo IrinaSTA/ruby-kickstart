@@ -31,7 +31,7 @@
 # lissa.blogs                     # => [#<Blog:0x007fec28c49b88
 #     @date=#<Date: 2010-05-28 ((2455345j,0s,0n),+0s,2299161j)>,
 #     @text="Sailor Mars is my favourite",
-#       @user=#<User:0x007fec2902e5c8 @blogs=[...], @username="QTSort">>] 
+#       @user=#<User:0x007fec2902e5c8 @blogs=[...], @username="QTSort">>]
 #
 # blog1 = lissa.blogs.first
 # blog1.user                      # => lissa
@@ -73,3 +73,51 @@
 # date docs are at: http://ruby-doc.org/core/classes/Date.html
 # don't spend too much time worrying about them :)
 require 'date'
+
+class User
+
+  def initialize username
+    @username = username
+    @blogs = []
+  end
+
+  attr_accessor 'username', 'blogs'
+
+  def add_blog date, text
+    added_blog = Blog.new date, self, text
+    blogs << added_blog
+    self.blogs = blogs.sort_by {|blog| blog.date}.reverse
+    added_blog
+  end
+
+  def blogs
+    print self.blogs
+  end
+
+end
+
+class Blog
+
+  def initialize date, user, text
+    @date = date
+    @user = user
+    @text = text
+  end
+
+  attr_accessor 'text', 'date', 'user'
+
+  def ==(other)
+    return self.date == other.date
+    return self.text == other.text
+    return self.user == other.user
+  end
+
+  def summary
+    if self.split.length < 10
+      self
+    else
+      self.split.take(10).inject(" ")
+    end
+  end
+
+end

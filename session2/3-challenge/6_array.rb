@@ -15,3 +15,26 @@
 # prime_chars? ['a', 'bcd']       # => false
 # prime_chars? ['a', 'b', 'cd']   # => false
 
+#this gives the right result, with 0 and 1 not prime and 2 prime. But the code
+#is very ugly, needs to be refactored
+
+def prime_chars? arr
+  require 'prime'
+  #find sum of all string length in the array
+  num = arr.map {|x| x.length}.inject("+")
+  #find if that sum is a prime number or not
+  
+  if num > 2
+    (2..num -1).to_a.each do |x|
+      if num % x == 0
+        return false
+      end
+    end
+  else
+    if num == 2
+      return true
+    else
+      return false
+    end
+  end
+end

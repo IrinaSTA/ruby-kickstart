@@ -14,6 +14,17 @@ class Car
   def get_miles
     @miles
   end
+
+  # how do I only allow condition == "New" or "Used" ?
+  def set_condition(condition)
+    @condition = condition
+  end
+
+  # likewise, how do I allow only positive numbers to be used for param?
+  def drive(miles)
+    @miles -= miles
+    @condition = "Used"
+  end
 end
 
 car = Car.new

@@ -9,3 +9,13 @@
 # alternate_words("Can't we all get along?")      # => ["Can't", "all", "along"]
 # alternate_words("Elementary, my dear Watson!")  # => ["Elementary", "dear"]
 
+def alternate_words sentence
+  words = sentence.delete("!@$#%^&*()-=_+[]:;,./<>?|").split.to_a
+  every_other_word = []
+  n = 0
+  while n < words.size do
+    every_other_word << words[n]
+    n +=2
+  end
+  return every_other_word
+end

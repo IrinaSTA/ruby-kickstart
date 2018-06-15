@@ -19,8 +19,13 @@
 # and when you think it is correct, you can test it with  $ rake 2:2
 
 def hi_hi_goodbye
-  # your code here
-
+  var = ""
+  until var == "bye" do
+    puts "Enter a number: "
+    var = gets.chomp
+    puts "hi " * var.to_i
+  end
+  puts "goodbye" #this prints out on a new line and i'd like to figure out why
 end
 
 
